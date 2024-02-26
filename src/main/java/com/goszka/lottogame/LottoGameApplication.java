@@ -1,4 +1,4 @@
-package com.example.lottogame;
+package com.goszka.lottogame;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

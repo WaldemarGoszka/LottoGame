@@ -1,4 +1,4 @@
-package com.example.lottogame;
+package com.goszka.lottogame;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
