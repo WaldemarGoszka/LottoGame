@@ -1,58 +1,54 @@
 package com.goszka.lottogame.domain.numberreceiver;
 
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
+import java.util.Set;
 
-import com.goszka.lottogame.domain.numberreceiver.dto.NumberReceiverResultDto;
+import com.goszka.lottogame.domain.numberreceiver.dto.InputNumberResultsDto;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class NumberReceiverFacadeTest {
+    NumberReceiverFacade numberReceiverFacade = new NumberReceiverFacade(
+            new NumberValidator()
+    );
+
     @Test
-    public void should_return_success_when_user_gave_six_numbers_in_correct_range() {
-        // given
-        NumberReceiverFacade numberReceiverFacade = new NumberReceiverFacade();
-        List<Integer> numbersFromUser = List.of(1, 2, 3, 4, 5, 6);
-        // when
-        NumberReceiverResultDto result = numberReceiverFacade.inputNumbers(numbersFromUser);
-        // then
+    public void should_return_success_when_user_gave_six_numbers() {
+        //given
+        Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5, 6);
+        //when
+        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        //then
         assertThat(result.message()).isEqualTo("success");
     }
 
     @Test
-    public void should_return_unique_id_when_user_gave_correct_input() {
-
+    public void should_return_failed_when_user_gave_at_least_one_number_out_of_range_of_1_to_99() {
+        //given
+        Set<Integer> numbersFromUser = Set.of(1, 2, 300, 4, 5, 6);
+        //when
+        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        //then
+        assertThat(result.message()).isEqualTo("failed");
     }
 
     @Test
-    public void should_return_correct_draw_date_when_user_gave_correct_input() {
-
+    public void should_return_failed_when_user_gave_less_then_six_numbers() {
+        //given
+        Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5);
+        //when
+        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        //then
+        assertThat(result.message()).isEqualTo("failed");
     }
 
     @Test
-    public void should_return_failure_when_user_gave_less_than_six_numbers() {
-        // given
-        NumberReceiverFacade numberReceiverFacade = new NumberReceiverFacade();
-        List<Integer> numbersFromUser = List.of(1, 2, 3, 4, 5);
-        // when
-        NumberReceiverResultDto result = numberReceiverFacade.inputNumbers(numbersFromUser);
-        // then
-        assertThat(result.message()).isEqualTo("failure");
-    }
-
-    @Test
-    public void should_return_failure_when_user_gave_more_than_six_numbers() {
-
-    }
-
-    @Test
-    public void should_return_failure_when_user_gave_at_least_one_duplicate() {
-
-    }
-
-    @Test
-    public void should_return_failure_when_user_gave_at_least_one_out_of_range() {
-
+    public void should_return_failed_when_user_gave_more_then_six_numbers() {
+        //given
+        Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5, 6, 7);
+        //when
+        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        //then
+        assertThat(result.message()).isEqualTo("failed");
     }
 
 
