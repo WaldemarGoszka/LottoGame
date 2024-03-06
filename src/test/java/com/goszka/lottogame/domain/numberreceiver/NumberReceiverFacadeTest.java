@@ -1,6 +1,6 @@
 package com.goszka.lottogame.domain.numberreceiver;
 
-import com.goszka.lottogame.domain.numberreceiver.dto.InputNumberResultsDto;
+import com.goszka.lottogame.domain.numberreceiver.dto.NumberReceiverResponseDto;
 import com.goszka.lottogame.domain.numberreceiver.dto.TicketDto;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +25,7 @@ class NumberReceiverFacadeTest {
         //given
         Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5, 6);
         //when
-        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        NumberReceiverResponseDto result = numberReceiverFacade.input(numbersFromUser);
         //then
         assertThat(result.message()).isEqualTo("success");
     }
@@ -35,7 +35,7 @@ class NumberReceiverFacadeTest {
         //given
         Set<Integer> numbersFromUser = Set.of(1, 2, 300, 4, 5, 6);
         //when
-        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        NumberReceiverResponseDto result = numberReceiverFacade.input(numbersFromUser);
         //then
         assertThat(result.message()).isEqualTo("failed");
     }
@@ -45,7 +45,7 @@ class NumberReceiverFacadeTest {
         //given
         Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5);
         //when
-        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        NumberReceiverResponseDto result = numberReceiverFacade.input(numbersFromUser);
         //then
         assertThat(result.message()).isEqualTo("failed");
     }
@@ -55,7 +55,7 @@ class NumberReceiverFacadeTest {
         //given
         Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5, 6, 7);
         //when
-        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        NumberReceiverResponseDto result = numberReceiverFacade.input(numbersFromUser);
         //then
         assertThat(result.message()).isEqualTo("failed");
     }
@@ -64,7 +64,7 @@ class NumberReceiverFacadeTest {
     public void should_return_save_to_database_when_user_gave_six_numbers() {
         //given
         Set<Integer> numbersFromUser = Set.of(1, 2, 3, 4, 5, 6);
-        InputNumberResultsDto result = numberReceiverFacade.input(numbersFromUser);
+        NumberReceiverResponseDto result = numberReceiverFacade.input(numbersFromUser);
         LocalDateTime drawDate = LocalDateTime.of(2023,7,23,20,45,0);
         //when
         List<TicketDto> ticketDtos = numberReceiverFacade.userNumbers(drawDate);

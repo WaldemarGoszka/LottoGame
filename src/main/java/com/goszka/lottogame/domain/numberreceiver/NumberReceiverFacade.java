@@ -1,7 +1,7 @@
 package com.goszka.lottogame.domain.numberreceiver;
 
 
-import com.goszka.lottogame.domain.numberreceiver.dto.InputNumberResultsDto;
+import com.goszka.lottogame.domain.numberreceiver.dto.NumberReceiverResponseDto;
 import com.goszka.lottogame.domain.numberreceiver.dto.TicketDto;
 import lombok.AllArgsConstructor;
 import java.time.Clock;
@@ -16,20 +16,20 @@ public class NumberReceiverFacade {
     private NumberReceiverRepository repository;
     private final Clock clock;
 
-    public InputNumberResultsDto input(Set<Integer> numbersFromUser) {
+    public NumberReceiverResponseDto input(Set<Integer> numbersFromUser) {
         boolean areAllNumbersInRange = validator.areAllNumbersInRange(numbersFromUser);
         if (areAllNumbersInRange) {
             String ticketId = UUID.randomUUID().toString();
             LocalDateTime drawDate = LocalDateTime.now(clock);
             Ticket savedTicket = repository.save(new Ticket(ticketId, drawDate, numbersFromUser));
-            return InputNumberResultsDto.builder()
+            return NumberReceiverResponseDto.builder()
                     .message("success")
                     .drawDate(savedTicket.drawDate())
                     .ticketId(savedTicket.ticketId())
                     .numbersFromUser(savedTicket.numbersFromUser())
                     .build();
         }
-        return InputNumberResultsDto.builder()
+        return NumberReceiverResponseDto.builder()
                 .message("failed")
                 .build();
     }
