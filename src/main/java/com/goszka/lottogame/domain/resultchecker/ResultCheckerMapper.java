@@ -1,8 +1,8 @@
 package com.goszka.lottogame.domain.resultchecker;
 
-import pl.lotto.domain.numberreceiver.dto.TicketDto;
-import pl.lotto.domain.resultchecker.dto.PlayersDto;
-import pl.lotto.domain.resultchecker.dto.ResultDto;
+import com.goszka.lottogame.domain.numberreceiver.dto.TicketDto;
+import com.goszka.lottogame.domain.resultchecker.dto.PlayersDto;
+import com.goszka.lottogame.domain.resultchecker.dto.ResultDto;
 
 import java.util.List;
 
