@@ -9,6 +9,7 @@ import java.util.Set;
 
 @AllArgsConstructor
 public class WinningNumbersGeneratorFacade {
+    private final RandomNumbersGenerable randomGenerable;
     private final RandomNumbersGenerable winningNumbersGenerator;
     private final WinningNumbersValidator winningNumbersValidator;
     private final WinningNumbersRepository winningNumbersRepository;
@@ -16,7 +17,8 @@ public class WinningNumbersGeneratorFacade {
 
     public WinningNumbersDto generateWinningNumbers() {
         LocalDateTime nextDrawDate = numberReceiverFacade.retrieveNextDrawDate();
-        Set<Integer> winningNumbers = winningNumbersGenerator.generateSixRandomNumbers();
+        SixRandomNumbersDto dto = randomGenerable.generateSixRandomNumbers();
+        Set<Integer> winningNumbers = dto.numbers();
         winningNumbersValidator.validate(winningNumbers);
         winningNumbersRepository.save(WinningNumbers.builder()
                 .winningNumbers(winningNumbers)

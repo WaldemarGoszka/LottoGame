@@ -23,7 +23,7 @@ class WinningNumbersGeneratorFacadeTest {
     @Test
     public void it_should_return_set_of_required_size() {
         //given
-        RandomNumbersGenerable generator = new RandomGenerator(fetcher);
+        RandomNumbersGenerable generator = new WinningNumbersGeneratorTestImpl();
         when(numberReceiverFacade.retrieveNextDrawDate()).thenReturn(LocalDateTime.now());
         WinningNumbersGeneratorFacade numbersGeneratorFacade = new NumberGeneratorConfiguration().createForTest(generator, winningNumbersRepository, numberReceiverFacade);
         //when
@@ -35,7 +35,7 @@ class WinningNumbersGeneratorFacadeTest {
     @Test
     public void it_should_return_set_of_required_size_within_required_range() {
         //given
-        RandomNumbersGenerable generator = new RandomGenerator(fetcher);
+        RandomNumbersGenerable generator = new WinningNumbersGeneratorTestImpl();
         when(numberReceiverFacade.retrieveNextDrawDate()).thenReturn(LocalDateTime.now());
         WinningNumbersGeneratorFacade numbersGeneratorFacade = new NumberGeneratorConfiguration().createForTest(generator, winningNumbersRepository, numberReceiverFacade);
         //when
