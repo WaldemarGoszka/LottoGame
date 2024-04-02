@@ -9,8 +9,8 @@ import java.util.Set;
 
 @AllArgsConstructor
 public class WinningNumbersGeneratorFacade {
-    private final RandomNumbersGenerable randomGenerable;
-    private final RandomNumbersGenerable winningNumbersGenerator;
+    private final RandomNumberGenerable randomGenerable;
+    private final RandomNumberGenerable winningNumbersGenerator;
     private final WinningNumbersValidator winningNumbersValidator;
     private final WinningNumbersRepository winningNumbersRepository;
     private final NumberReceiverFacade numberReceiverFacade;

@@ -1,5 +1,5 @@
 package com.goszka.lottogame.domain.numbergenerator;
 
-public interface RandomNumbersGenerable {
+public interface RandomNumberGenerable {
     SixRandomNumbersDto generateSixRandomNumbers();
 }

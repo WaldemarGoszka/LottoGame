@@ -2,14 +2,14 @@ package com.goszka.lottogame.domain.numbergenerator;
 
 import java.util.Set;
 
-class WinningNumbersGeneratorTestImpl implements RandomNumbersGenerable {
+class WinningNumberGeneratorTestImpl implements RandomNumberGenerable {
     private final Set<Integer> generatedNumbers;
 
-    WinningNumbersGeneratorTestImpl() {
+    WinningNumberGeneratorTestImpl() {
         this.generatedNumbers = Set.of(1, 2, 3, 4, 5, 6);
     }
 
-    WinningNumbersGeneratorTestImpl(Set<Integer> winningNumbers){
+    WinningNumberGeneratorTestImpl(Set<Integer> winningNumbers){
         this.generatedNumbers = winningNumbers;
     }
 

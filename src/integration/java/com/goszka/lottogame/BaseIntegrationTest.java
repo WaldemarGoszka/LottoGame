@@ -1,4 +1,4 @@
-package com.goszka.lottogame;
+package pl.lotto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
@@ -17,7 +17,7 @@ import org.testcontainers.utility.DockerImageName;
 
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
-@SpringBootTest(classes = LottoGameApplication.class)
+@SpringBootTest(classes = LottoSpringBootApplication.class)
 @ActiveProfiles("integration")
 @AutoConfigureMockMvc
 @Testcontainers

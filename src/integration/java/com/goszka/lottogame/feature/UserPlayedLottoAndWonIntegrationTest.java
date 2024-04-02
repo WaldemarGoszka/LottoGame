@@ -1,9 +1,9 @@
-package com.goszka.lottogame.feature;
+package pl.lotto.feature;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
-import com.goszka.lottogame.BaseIntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
+import pl.lotto.BaseIntegrationTest;
 
 public class UserPlayedLottoAndWonIntegrationTest extends BaseIntegrationTest {
 
