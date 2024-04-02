@@ -8,8 +8,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import pl.lotto.domain.numbergenerator.RandomNumberGenerable;
-import pl.lotto.domain.numbergenerator.SixRandomNumbersDto;
+import com.goszka.lottogame.domain.numbergenerator.RandomNumberGenerable;
+import com.goszka.lottogame.domain.numbergenerator.SixRandomNumbersDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
