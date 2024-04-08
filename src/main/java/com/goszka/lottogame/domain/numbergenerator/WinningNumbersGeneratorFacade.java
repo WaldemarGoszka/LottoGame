@@ -4,6 +4,7 @@ import com.goszka.lottogame.domain.numbergenerator.dto.WinningNumbersDto;
 import com.goszka.lottogame.domain.numberreceiver.NumberReceiverFacade;
 import lombok.AllArgsConstructor;
 
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -20,12 +21,9 @@ public class WinningNumbersGeneratorFacade {
         SixRandomNumbersDto sixRandomNumbersDto = randomGenerable.generateSixRandomNumbers(properties.count(), properties.lowerBand(), properties.upperBand());
         Set<Integer> winningNumbers = sixRandomNumbersDto.numbers();
         winningNumbersValidator.validate(winningNumbers);
-        winningNumbersRepository.save(WinningNumbers.builder()
-                .winningNumbers(winningNumbers)
-                .date(nextDrawDate)
-                .build());
         return WinningNumbersDto.builder()
                 .winningNumbers(winningNumbers)
+                .date(nextDrawDate)
                 .build();
     }
 
