@@ -21,9 +21,14 @@ public class WinningNumbersGeneratorFacade {
         SixRandomNumbersDto sixRandomNumbersDto = randomGenerable.generateSixRandomNumbers(properties.count(), properties.lowerBand(), properties.upperBand());
         Set<Integer> winningNumbers = sixRandomNumbersDto.numbers();
         winningNumbersValidator.validate(winningNumbers);
-        return WinningNumbersDto.builder()
+        WinningNumbers winningNumbersDocument = WinningNumbers.builder()
                 .winningNumbers(winningNumbers)
                 .date(nextDrawDate)
+                .build();
+        WinningNumbers savedNumbers = winningNumbersRepository.save(winningNumbersDocument);
+        return WinningNumbersDto.builder()
+                .winningNumbers(savedNumbers.winningNumbers())
+                .date(savedNumbers.date())
                 .build();
     }
 

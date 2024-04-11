@@ -4,30 +4,9 @@ import com.goszka.lottogame.domain.numberreceiver.NumberReceiverFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Configuration
 public class NumberGeneratorConfiguration {
-    @Bean
-    WinningNumbersRepository winningNumbersRepository() {
-        return new WinningNumbersRepository() {
-            @Override
-            public WinningNumbers save(WinningNumbers winningNumbers) {
-                return null;
-            }
-
-            @Override
-            public Optional<WinningNumbers> findNumbersByDate(LocalDateTime date) {
-                return Optional.empty();
-            }
-
-            @Override
-            public boolean existsByDate(LocalDateTime date) {
-                return false;
-            }
-        };
-    }
 
     @Bean
     WinningNumbersGeneratorFacade winningNumbersGeneratorFacade(RandomNumberGenerable randomNumbersGenerable,
