@@ -14,5 +14,6 @@ record WinningNumbers(
         @Id
         String id,
         Set<Integer> winningNumbers,
-        LocalDateTime date) {
+        LocalDateTime date
+) {
 }
