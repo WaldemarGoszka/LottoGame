@@ -14,6 +14,7 @@ class NumberValidator {
     List<ValidationResult> errors = new LinkedList<>();
 
     List<ValidationResult> validate(Set<Integer> numbersFromUser) {
+        errors = new LinkedList<>();
         if (!isNumbersSizeEqualSix(numbersFromUser)) {
             errors.add(ValidationResult.NOT_SIX_NUMBER_GIVEN);
         }

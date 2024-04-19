@@ -1,4 +1,4 @@
-package pl.lotto;
+package com.goszka.lottogame.feature;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;

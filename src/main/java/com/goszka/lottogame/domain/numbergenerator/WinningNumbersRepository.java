@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface WinningNumbersRepository extends MongoRepository<WinningNumbers, String> {
     WinningNumbers save(WinningNumbers winningNumbers);
-    Optional<WinningNumbers> findNumbersByDate(LocalDateTime date);
+    Optional<WinningNumbers> findFirstByDate(LocalDateTime date);
     boolean existsByDate(LocalDateTime date);
 }

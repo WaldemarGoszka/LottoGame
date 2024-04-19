@@ -1,10 +1,10 @@
-package pl.lotto;
+package com.goszka.lottogame.feature;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import pl.lotto.domain.AdjustableClock;
+import com.goszka.lottogame.domain.AdjustableClock;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
