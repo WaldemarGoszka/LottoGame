@@ -2,10 +2,9 @@ package com.goszka.lottogame.domain.resultannouncer;
 
 import java.util.Optional;
 
-public interface ResponseRepository {
-    ResultResponse save(ResultResponse resultResponse);
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-    boolean existsById(String hash);
-
-    Optional<ResultResponse> findById(String hash);
+@Repository
+public interface ResponseRepository extends MongoRepository<ResultResponse, String> {
 }
