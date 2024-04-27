@@ -8,6 +8,8 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
 lotto:
+  result-checker:
+    lotteryRunOccurrence: "0 55 11 * * 6"
   number-generator:
     lotteryRunOccurrence: "0 0 12 * * 6"
     facade:
